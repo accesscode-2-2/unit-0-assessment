@@ -18,30 +18,33 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    NSInteger integer = 33;
+    return integer;
 }
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (CGFloat)shouldReturnANegativeCGFloat {
+    CGFloat negFloat = -3.3;
+    return negFloat;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+    return (8 == 3);
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    return 'a';
 }
 
 /*
@@ -49,7 +52,11 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    NSInteger sum = 0;
+    for (int i = 0; i < 100; i++) {
+        sum += i;
+    }
+    return sum;
 }
 
 /*
@@ -57,7 +64,11 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+    NSInteger sum = 0;
+    for (int i = 0; i < count; i++) {
+        sum += arr[i];
+    }
+    return sum;
 }
 
 /*
@@ -67,14 +78,22 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
+    char beforeQ = '\0';
+    int i = 0;
+    while (str[i] != 'q') {
+        beforeQ = str[i];
+        i++;
+    }
+    return beforeQ;
 }
 
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    
+    return aNumber + bNumber;
+
 }
 
 
@@ -82,6 +101,9 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
+    if (aNumber % 2 != 0) {
+        return YES;
+    }
     return NO;
 }
 
@@ -89,6 +111,10 @@
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+    
+    if(aNumber % 5 == 0) {
+        return YES;
+    }
     return NO;
 }
 
@@ -97,6 +123,11 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
+    
+    if ((aNumber % 2 != 0) && (bNumber % 2 == 0)) {
+        return YES;
+    }
+    
     return NO;
 }
 
@@ -105,14 +136,14 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    return [person name];
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
-    
+    return [person setName:@"Ada Lovelace"];
 }
 
 /*
@@ -122,7 +153,12 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+    
+    Person *santa = [[Person alloc] init];
+    [santa setName:@"Santa Clause"];
+    [santa setAge:1823];
+    
+    return santa;
 }
 
 /*
@@ -134,6 +170,9 @@
  */
 - (void)makePersonSitInChair:(Chair *)chair {
     
+    Person *person = [[Person alloc] init];
+    [person sitInChair:chair];
+    
 }
 
 /*
@@ -142,6 +181,8 @@
  */
 - (void)makePersonStandUp:(Person *)person {
     
+    [person standUp];
+    
 }
 
 /*
@@ -149,7 +190,9 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
-    return [[NSArray alloc] init];
+    
+    NSArray *strings = @[@"one", @"two", @"three", @"four", @"five", @"six"];
+    return strings;
 }
 
 // BONUS
@@ -160,6 +203,8 @@
  */
 - (void)changeValueOfIndexFourInArray:(NSMutableArray *)arr
                         toPersonsName:(Person *)person {
+    
+    [arr replaceObjectAtIndex:4 withObject:[person name]];
     
 }
 
@@ -172,7 +217,14 @@
 
 - (NSString *)repeatString:(NSString *)str
              numberOfTimes:(NSInteger)x {
-    return @"";
+    
+    NSMutableString *test = [NSMutableString stringWithString:str];
+
+    for (int i = 1; i < x; i++) {
+        [test appendString:str];
+    }
+    
+    return [NSString stringWithString:test];
 }
 
 // BONUS
@@ -184,7 +236,19 @@
     (ex: [200, 500, 100, 400] returns 800)
  */
 - (int)returnSumWhileSumIsLessThan1050:(int *)arr {
-    return 0;
+    
+    int sum = 0;
+    int i = 0;
+    
+    while (sum <= 1050) {
+        sum += arr[i];
+        i++;
+    }
+    
+    i--;
+    sum -= arr[i];
+    
+    return sum;
 }
 
 @end
