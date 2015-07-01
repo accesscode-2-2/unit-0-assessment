@@ -12,6 +12,10 @@
 
 @interface Person : NSObject
 
+- (void)setName;
+- (void)setAge;
+- (void)changeName;
+
 - (void)setName:(NSString *)name;
 - (NSString *)name;
 

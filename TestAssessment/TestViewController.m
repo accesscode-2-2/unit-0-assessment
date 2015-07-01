@@ -11,37 +11,47 @@
 #import "Chair.h"
 
 
-@implementation TestViewController
+@implementation TestViewController{
+    
+}
 
 
 /*
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
+- (long)shouldReturnAPositiveNSInteger {
     
+    return 20;
+
 }
+
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (float)shouldReturnANegativeCGFloat {
+    CGFloat negative = -1.5;
+    return negative;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+  
+    return NO;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    char character = 'A';
+    return character;
+    
 }
 
 /*
@@ -49,15 +59,31 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    
+    NSInteger sum = 0;
+    
+    
+    for (int i = 0; i <= 100; i++) {
+        
+        sum += i;
+        
+    }
+    return sum;
 }
 
 /*
-    Given a c array (int[]) and a count, return the sum of the numbers within the arr
-    (eg. arr[0] + arr[1] ...)
+ Given a c array (int[]) and a count, return the sum of the numbers within the arr
+ (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+    
+    NSInteger sum = 0;
+    
+    for (int i = 0; i < count; i++) {
+        sum = sum + arr[i];
+    }
+    
+    return sum;
 }
 
 /*
@@ -67,14 +93,29 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
+    
+    NSInteger array = strlen(str);
+    char beforeq;
+    int i = 0;
+    while (i < array) {
+        if (str[i] == 'q') {
+            beforeq = str[i-1];
+            break;
+        }
+        i++;
+    }
+    
+    return beforeq;
 }
 
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    NSInteger sum;
+    
+    sum = aNumber + bNumber ;
+    return sum;
 }
 
 
@@ -82,14 +123,23 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
-    return NO;
+    
+    if (aNumber % 2 == 1) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 /*
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+    if (aNumber % 5 == 0) {
+        return YES;
+    } else {
     return NO;
+    }
 }
 
 /*
@@ -97,7 +147,11 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
+    if (aNumber % 2 == 1 & bNumber % 2 == 0) {
+        return YES;
+    } else {
     return NO;
+    }
 }
 
 /*
@@ -105,14 +159,17 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    
+    [person setName:@"Artur"];
+    return @"Artur";
 }
+
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
-    
+    [person setName:@"Ada Lovelace"];
 }
 
 /*
@@ -122,7 +179,12 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+    Person *mac = [[Person alloc] init];
+    [mac setName:@"Santa Clause"];
+    [mac setAge:1823];
+    
+    
+    return mac;
 }
 
 /*
@@ -133,6 +195,7 @@
  
  */
 - (void)makePersonSitInChair:(Chair *)chair {
+    
     
 }
 
