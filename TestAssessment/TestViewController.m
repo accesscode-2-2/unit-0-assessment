@@ -18,30 +18,35 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    NSInteger positiveNumber = 5;
+    return positiveNumber;
 }
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (CGFloat)shouldReturnANegativeCGFloat {
+    CGFloat negativeFloatNumber = - 3.5;
+    return negativeFloatNumber;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+    BOOL returnFalseBOOLResult = NO;
+    return returnFalseBOOLResult;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    char singleChar = 'a';
+    return singleChar;
 }
 
 /*
@@ -49,7 +54,11 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    NSInteger sum = 0;
+    for (int i = 0; i <= 100; i++) {
+        sum = sum + i;
+    }
+    return sum;
 }
 
 /*
@@ -57,8 +66,11 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
-}
+    NSInteger sum = 0;
+    for (int i = 0; i < count; i++) {
+        sum = arr[i] + arr[i+1];
+    }
+    return sum;
 
 /*
     Provided a C string (array of chars), return the character
@@ -67,28 +79,36 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
-}
-
+    while (int i = 0; str[i] == 'q'; i++) {
+        return str[i-1];
+    }
+    
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    NSInteger sum = aNumber + bNumber;
+    return sum;
 }
 
 
 /*
     This method should return a YES if aNumber is odd
- */
+// */
 - (BOOL)isOdd:(NSInteger)aNumber {
+    if (aNumber % 2 != 0) {
+        return YES;
+    }
     return NO;
 }
-
-/*
-    This method should return YES if aNumber is a multiple of 5
- */
+//
+///*
+//    This method should return YES if aNumber is a multiple of 5
+// */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+        if (aNumber % 5 == 0) {
+            return YES;
+        }
     return NO;
 }
 
@@ -97,6 +117,9 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
+    if ((aNumber % 2 != 0) && (bNumber % 2 == 0)) {
+        return YES;
+    }
     return NO;
 }
 
@@ -105,14 +128,16 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    NSString *personsName = [person name];
+    return personsName;
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
-    
+    NSString *newName = @"Ada Lovelace";
+    [person setName:newName];
 }
 
 /*
@@ -122,7 +147,10 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+    Person *instanceOfAPerson = [[Person alloc]init];
+    [instanceOfAPerson setName:@"Santa Clause"];
+    [instanceOfAPerson setAge:1823];
+    return instanceOfAPerson;
 }
 
 /*
@@ -133,7 +161,8 @@
  
  */
 - (void)makePersonSitInChair:(Chair *)chair {
-    
+    Person *person2 = [[Person alloc]init];
+    [person2 sitInChair:chair];
 }
 
 /*
@@ -141,6 +170,7 @@
     Send a message to this Person object telling it to stand up
  */
 - (void)makePersonStandUp:(Person *)person {
+    [person standUp];
     
 }
 
@@ -149,7 +179,8 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
-    return [[NSArray alloc] init];
+    NSArray *sixNSStringObjects = [[NSArray alloc] initWithObjects:@"Object One", @"Object Two", @"Object Three", @"Object Four", @"Object Five", @"Object Six", nil];
+    return sixNSStringObjects;
 }
 
 // BONUS
@@ -160,7 +191,7 @@
  */
 - (void)changeValueOfIndexFourInArray:(NSMutableArray *)arr
                         toPersonsName:(Person *)person {
-    
+
 }
 
 // BONUS
