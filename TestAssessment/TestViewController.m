@@ -18,15 +18,22 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
-}
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    NSInteger num = 1;
+	return num;
+	}
+	
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
+- (float)shouldReturnANegativeCGFloat {
+	float a = -4.2;
+	float x = -3.2;
+	float negSum = a + x;
+	return negSum;
+	
     
 }
 
@@ -34,14 +41,31 @@
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
+- (BOOL)shouldReturnAFalseyBool {
+     int a = 1;
+	 int b = 2;
+	
+	if (a + b = int) {
+		return FALSE;
+	}
+	
     
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+
+
+
+	NSString *alphabet = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	NSString *character = [alphabet substringFromIndex:[alphabet length] - 5];
+	NSLog(@"%@", character);
+		
+	}
+
+
 }
 
 /*
@@ -49,6 +73,15 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
+	
+	int sum = 0;
+    int x = 99;
+	for (int i = 1; i <= x; i++) {
+	int answer = sum + i;
+	
+	NSLog(@"The sum of 1 added to all the numbers leading up to 99 is %d", answer);
+		
+	}
     return 0;
 }
 
@@ -57,6 +90,8 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
+
+	NSMutableArray
     return 0;
 }
 
@@ -67,6 +102,17 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
+
+char *what = "aionkljajvqlkjaml";
+	while (int i = 0 <= 10) {
+		what = i;
+		return i;
+		
+		
+	}
+
+	
+
     return '\0';
 }
 
@@ -74,6 +120,8 @@
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
+    NSInteger sum = aNumber + bNumber;
+	NSLog(@"%ld", (long)sum);
     return 0;
 }
 
@@ -82,13 +130,19 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
-    return NO;
+	if (aNumber %2) {
+		return YES;
+	}else{
+		return NO;
 }
-
+}
 /*
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+	if (aNumber % 5 == 0) {
+		return YES;
+	}
     return NO;
 }
 
@@ -97,7 +151,11 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
-    return NO;
+	
+	if (aNumber && bNumber % 2) {
+		return YES;
+	}else{
+    return YES;
 }
 
 /*
@@ -105,13 +163,21 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+	Person
+	person.name;
+    return @"name";//????
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
+person setName = NSString
+
+person.name = "Ada Lovelace";
+
+//crap
+	
     
 }
 
@@ -123,6 +189,7 @@
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
     return [[Person alloc] init];
+	
 }
 
 /*
@@ -149,6 +216,16 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
+
+NSString *coolPeople = @"ericalexbob";
+NSString *coolDogs = @"milocooperspike";
+NSString *coolCats = @"paperbuddhabud";
+NSString *idk = @"jellybeans";
+NSString *rock = @"kryptonite";
+NSString *thePresident = @"BarackObama";
+
+NSArray *stuff [ *coolPeople, *cool ]
+
     return [[NSArray alloc] init];
 }
 
