@@ -42,6 +42,7 @@
     Method method = [self aMethodForSelector:@selector(shouldReturnAPositiveNSInteger)];
     NSString *rt = [self returnTypeForMethod:method];
     
+    
     BOOL isCorrectReturnType = [rt isEqualToString:RT_INT] || [rt isEqualToString:RT_NSINT];
     BOOL isCorrectReturnValue = [self.tvc shouldReturnAPositiveNSInteger] > 0;
     XCTAssert(isCorrectReturnType && isCorrectReturnValue);
