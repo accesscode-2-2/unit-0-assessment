@@ -157,8 +157,7 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-//    [person name];
-    return @"";
+    return [person name];
 }
 
 /*
@@ -227,6 +226,7 @@
  */
 - (void)changeValueOfIndexFourInArray:(NSMutableArray *)arr
                         toPersonsName:(Person *)person {
+    
     
     
 }
