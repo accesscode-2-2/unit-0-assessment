@@ -18,30 +18,35 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
+-(NSInteger) shouldReturnAPositiveNSInteger {
     
+    return 25;
 }
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+-(CGFloat) shouldReturnANegativeCGFloat {
+    return -25.5;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+  
+    return NO;
 }
-
-/*
+    
+    /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+-(char) shouldReturnACharAtoZ {
+    char p = 'a';
+   
+    return p;
 }
 
 /*
@@ -49,7 +54,14 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+   
+    for (int i = 0; i < 100 ; i++) {
+        if (i < 100)+ 1;
+        printf("%d",i);
+    }
+    
+
+return 0;
 }
 
 /*
@@ -57,6 +69,11 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
+    
+    int blah[5];
+    for (int i = 0; i < sizeof(blah) / sizeof(int); i++) {
+        printf("%d", blah[i]);
+    }
     return 0;
 }
 
@@ -67,7 +84,12 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
+    
+    int [] = "inquisitive";
+    
+  
+    
+    return '\n';
 }
 
 /*
@@ -82,13 +104,26 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
-    return NO;
+    
+    int numberIsOdd = YES;
+    int numberIsEven = NO;
+    
+    if (numberIsOdd) {
+        return YES;
+    }else{ (numberIsEven);
+    
+    }
+    return YES;
 }
 
 /*
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+    
+    
+    
+    
     return NO;
 }
 
@@ -104,15 +139,28 @@
     This method should return the name property of the person
     parameter (hint: command + click on class name to jump to the interface.
  */
+
 - (NSString *)shouldReturnPersonsName:(Person *)person {
+    
+
+    
+    
     return @"";
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
-- (void)changePersonsNameToAdaLovelace:(Person *)person {
+- (void)changePersonsNameToAdaLovelace:(Person *)person
+                                toName:(NSString *)name {
+         [person setName:name];
     
+    
+    Person *Christian = [[Person alloc] init];
+    Person *Bob = [[Person alloc] init];
+    
+    [Christian changePersonsNameToAdaLovelace:Bob name:@"Ada LoveLace"];
+
 }
 
 /*
@@ -122,6 +170,13 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
+    Person *guy = [[Person alloc] init]; 
+    Person *howOldIsSanta = [[Person alloc] init];
+
+     [guy setName:@"Santa Clause"];
+     [howOldIsSanta setAge:@"1823"];
+
+    
     return [[Person alloc] init];
 }
 
@@ -134,6 +189,15 @@
  */
 - (void)makePersonSitInChair:(Chair *)chair {
     
+    Person *guy = [[Person alloc] init];
+    
+    - (void)sitInChair:(Chair *)chair{
+        
+        [guy makePersonSitInChair: sitInChair]
+    }
+    
+    
+    
 }
 
 /*
@@ -141,7 +205,7 @@
     Send a message to this Person object telling it to stand up
  */
 - (void)makePersonStandUp:(Person *)person {
-    
+    [person ]
 }
 
 /*
