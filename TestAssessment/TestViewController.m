@@ -18,102 +18,181 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    return 50;
 }
+
+
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (CGFloat)shouldReturnANegativeCGFloat {
+    return -3.5;
 }
+
+
+
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
+- (BOOL)shouldReturnAFalseyBool {
+    return FALSE;
     
 }
+
+
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    
+    return(char) (arc4random_uniform(26) + 'y');
 }
+
+
+
 
 /*
     This method should return the sum of all numbers from 
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
+
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    
+    NSInteger sum = 0;
+    
+    NSInteger i;
+    
+    for (i = 0; i < 100; i++) {
+        sum = sum + i;
+    }
+    
+    return sum;
 }
 
-/*
-    Given a c array (int[]) and a count, return the sum of the numbers within the arr
-    (eg. arr[0] + arr[1] ...)
- */
+
+//
+/////*
+//////    Given a c array (int[]) and a count, return the sum of the numbers within the arr
+//////    (eg. arr[0] + arr[1] ...)
+//////// */
+//////////
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+
+    NSInteger sum = 0;
+    
+    for (int i = 0; i < count; i++) {
+        sum = sum + arr[i];
+    }
+    
+    return sum;
 }
 
-/*
-    Provided a C string (array of chars), return the character
-    that immediately preceeds the letter q
-    (ex. "aionkljajvqlkjaml" would return the letter 'v')
-    (hint: while loop)
- */
-- (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
-}
+
+//
+///*
+//    Provided a C string (array of chars), return the character
+//    that immediately preceeds the letter q
+//    (ex. "aionkljajvqlkjaml" would return the letter 'v')
+//    (hint: while loop)
+// */
+//- (char)shouldReturnCharBeforeQ:(char *)str {
+//    
+//    
+//}
+//
+
 
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    
+    aNumber = 50;
+    bNumber = 130;
+    
+    NSInteger sum;
+    sum = aNumber + bNumber;
+    
+    return sum;
+    
 }
+
 
 
 /*
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
-    return NO;
+
+    
+    if (aNumber % 2 != 0) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
+
+
 
 /*
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
-    return NO;
+    
+    if (aNumber % 5 == 0) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
+
 /*
-    This method should return YES is aNumber is odd and bNumber is even
+    This method should return YES if aNumber is odd and bNumber is even
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
-    return NO;
+    
+    if ((aNumber % 2 != 0) && (bNumber % 2 == 0)) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
-/*
-    This method should return the name property of the person
-    parameter (hint: command + click on class name to jump to the interface.
- */
+
+
+///*
+//    This method should return the name property of the person
+////    parameter (hint: command + click on class name to jump to the interface.
+//// */
+
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    
+    [person setName:@"blah"];
+    
+    return [person name];
+
 }
 
-/*
-    This method should change the person name to "Ada Lovelace"
- */
+
+//
+///*
+//    This method should change the person name to "Ada Lovelace"
+// */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
     
+    [person setName:@"Ada Lovelace"];
+
 }
+
+
 
 /*
     This method should do the following:
@@ -122,8 +201,18 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+    
+    Person *santaclause = [[Person alloc] init];
+    
+    [santaclause setName:@"Santa Clause"];
+    
+    [santaclause setAge:1823];
+    
+    return santaclause;
+
 }
+
+
 
 /*
     This method provides you an instance of Chair as a parameter
@@ -134,13 +223,20 @@
  */
 - (void)makePersonSitInChair:(Chair *)chair {
     
+    Person *carl = [[Person alloc] init];
+    [carl sitInChair:chair];
+    
 }
+
+
 
 /*
     This method provides you an instance of Person as a parameter
     Send a message to this Person object telling it to stand up
  */
 - (void)makePersonStandUp:(Person *)person {
+    
+    [person standUp];
     
 }
 
@@ -149,8 +245,14 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
-    return [[NSArray alloc] init];
+    
+    NSArray *array = [[NSArray alloc] initWithObjects:@"Hamburger", @"Pizza", @"Spaghetti", @"FiletMignon", @"Salad", @"Chocolate", nil];
+ 
+    return array;
 }
+
+
+
 
 // BONUS
 /* 
@@ -161,6 +263,7 @@
 - (void)changeValueOfIndexFourInArray:(NSMutableArray *)arr
                         toPersonsName:(Person *)person {
     
+    
 }
 
 // BONUS
@@ -170,21 +273,23 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSMutableString_Class/
  */
 
-- (NSString *)repeatString:(NSString *)str
-             numberOfTimes:(NSInteger)x {
-    return @"";
-}
-
-// BONUS
-/*
-    Given an array of numbers, sum each number in the array UNTIL
-    the sum is greater than 1050. The returned value of this method
-    should never be greater than 1050.
-    (ex: [500, 500, 500] returns 1000)
-    (ex: [200, 500, 100, 400] returns 800)
- */
-- (int)returnSumWhileSumIsLessThan1050:(int *)arr {
-    return 0;
-}
+//- (NSString *)repeatString:(NSString *)str
+//             numberOfTimes:(NSInteger)x {
+////    
+////    NSString *mike = [[NSString alloc]init];
+//    
+//
+//
+//// BONUS
+///*
+//    Given an array of numbers, sum each number in the array UNTIL
+//    the sum is greater than 1050. The returned value of this method
+//    should never be greater than 1050.
+//    (ex: [500, 500, 500] returns 1000)
+//    (ex: [200, 500, 100, 400] returns 800)
+//// */
+////- (int)returnSumWhileSumIsLessThan1050:(int *)arr {
+////    return 0;
+////}
 
 @end
