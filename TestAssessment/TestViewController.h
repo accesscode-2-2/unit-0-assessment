@@ -10,4 +10,7 @@
 
 @interface TestViewController : ViewController
 
+- (NSInteger *)shouldReturnAPositiveNSInteger;
+
+
 @end
