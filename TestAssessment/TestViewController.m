@@ -10,8 +10,33 @@
 #import "Person.h"
 #import "Chair.h"
 
+@interface Person: NSObject
 
-@implementation TestViewController
+-(void)setAge:(NSString *)age;
+-(NSString *)age;
+
+-(void)setName:(NSString *)name(NSString *)name;
+-(NSString *)name;
+
+@end
+
+@interface shouldReturnAPositiveController : NSObject
+-(void)shouldReturnAPositiveNSInteger;
+@end
+
+@interface TestViewController : NSObject
+
+
+-(BOOL)shouldReturnAFalseyBool;
+-(BOOL) hasID;
+-(BOOL) hasPants;
+-(void)shouldReturnANegativeCGFloat;
+
+@end
+
+
+
+@implementation TestViewController {
 
 
 /*
@@ -20,7 +45,12 @@
  */
 - (void)shouldReturnAPositiveNSInteger {
     
+    int positiveInteger = -5;
+    int negativeInteger = -3;
+    printf(" the result is %d * %d \n", positiveInteger, negativeInteger );
+    
 }
+
 
 /*
     This method should return any negative CGFloat 
@@ -28,27 +58,151 @@
  */
 - (void)shouldReturnANegativeCGFloat {
     
+    float numbers[] = {3.1415, -1.6180,};
+
+    float result;
+    printf(" %f + %f = %f \n", numbers[0], numbers[1], result);
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
+
+int  MikeAge = 20;
+int  mikesCash = 10;
+int  buyoff = 40;
+BOOL hasID = YES;
+BOOL hasPants = NO;
+int  minAge = 21;
+
+
+
+if (mikeAge == minAge && hasID) {
+    NSLog(@"Welcome");
+} else if (mikeAge < minAge && !hasID) {
+    NSLog(@"You can't come in ");
+} else if (mikes >= buyoff) {
+    if (carlMoney >= buyoff) {
+        NSLog(@"you're luck mofo");
+    } else {
+        NSLog(@"Go to grams");
+    }
     
 }
+              return NO;
+
 
 /*
     This method should return a single char from a - z
  */
 - (void)shouldReturnACharAtoZ {
-}
+    
+   
+    
+    
+    @interface CaesarCipher : NSObject
+    
+    - (NSString *)originalString:(NSString *)string offset:(int)offset;
+    - (NSString *)decode:(NSString *)string offset:(int)offset;
+    - (NSString *)encode:(NSString *)string offset:(int)offset;
+
+    
+    
+    @end
+    
+    
+    @implementation CaesarCipher
+    
+    - (NSString *)encode:(NSString *)string offset:(int)offset {
+        if (offset > 25) {
+            NSAssert(offset < 26, @"offset is out of range. 1 - 25");
+        }
+        NSString *str = [string lowercaseString];
+        unsigned long count = [string length];
+        unichar result[count];
+        unichar buffer[count];
+        [str getCharacters:buffer range:NSMakeRange(0, count)];
+        
+        printf("Decode the Letter!\n");
+        
+        char allchars[] = "abcdefghijklmnopqrstuvwxyz";
+        
+        for (int i = 0; i < count; i++) {
+            if (buffer[i] == ' ' || ispunct(buffer[i])) {
+                result[i] = buffer[i];
+                continue;
+            }
+            
+            char *e = strchr(allchars, buffer[i]);
+            int idx= (int)(e - allchars);
+            int new_idx = (idx + offset) % strlen(allchars);
+            
+            result[i] = allchars[new_idx];
+        }
+        
+        return [NSString stringWithCharacters:result length:count];
+    }
+    
+    - (NSString *)decode:(NSString *)string offset:(int)offset {
+        return [self encode:string offset: (26 - offset)];
+    }
+    
+    
+    
+    - (BOOL)checkIfString:(NSString *)str1 isEqualToString:(NSString *)str2 {
+        
+        for (int i = 1; i < 26; i++) {
+            NSString *newEncodedString = [self encode:str2 offset:i];
+            if ([newEncodedString isEqualToString:str1]) {
+                NSLog(@"found a match");
+                return YES;
+            }
+        }
+        
+        NSLog(@"did not find a match");
+        return NO;
+    }
+    
+    @end
+    
+    
+    int main(int argc, const char * argv[]) {
+        @autoreleasepool {
+            
+            CaesarCipher *cipher = [[CaesarCipher alloc]init];
+            NSString *orginialString = @"q";
+            NSString *decoded2 = [cipher decode:orginialString offset:1];
+            
+            NSLog(@"%@", originalString);
+            NSLog(@"%@", decoded);
+            NSLog(@"%@", allchars[15]);
+            
+            BOOL [cipher checkIfString:originalString isEqualToString:decoded];
+            return YES;
+            
+        }
+    }
+
 
 /*
-    This method should return the sum of all numbers from 
+    This method should return the sum of all numbers from
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
+    
+    
+    int i;
+    int count;
+    int sum = 0;
+    
+    
+    for(int i;  i < 100; i++)
+    {
+        sum += i;
+    }
+    printf("Sum = %d",sum);
+    
     return 0;
 }
 
@@ -57,6 +211,9 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
+    
+    
+    
     return 0;
 }
 
@@ -113,16 +270,30 @@
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
     
+  
+    toName:(NSString *)newName {
+    
+    
+    [Person setName:newName];
+    [mike changePersonsName:mike toName:@"Ada Love Lace"];
+}
+    
+
+    
 }
 
 /*
+    createAndReturnPersonWithSomeProperties
     This method should do the following:
     1) Create an instance of Person
     2) Set the person's name to "Santa Clause"
     3) Set the person's age to 1823
  */
-- (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+- (Person *)SantaClaus {
+        Person *SantaClaus = [[Person alloc]init];
+        [Person setAge:[1823];
+        [SantaClaus setName: SantaClaus];
+        return Person *SantaClaus = [[Person alloc] init];
 }
 
 /*
