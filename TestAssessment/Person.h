@@ -12,6 +12,8 @@
 
 @interface Person : NSObject
 
+
+// declared methods
 - (void)setName:(NSString *)name;
 - (NSString *)name;
 

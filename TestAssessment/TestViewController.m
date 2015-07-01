@@ -18,30 +18,35 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    return 2;
 }
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (CGFloat)shouldReturnANegativeCGFloat {
+    return -1.5;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+    if (2 > 3) {
+      BOOL yes = YES;
+        yes = 1;
+    } else {
+    return FALSE;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+   return "c";
 }
 
 /*
@@ -49,7 +54,15 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    
+    int sum;
+    sum = 0; // reset our sum
+    int maxNumber = 99; // set our max constraint
+    
+    for (int i = 0; i < maxNumber; i++) {
+        sum = sum + i;
+        return sum;
+    }
 }
 
 /*
@@ -57,6 +70,7 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
+    
     return 0;
 }
 
@@ -67,6 +81,9 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
+   
+    while (
+    
     return '\0';
 }
 
@@ -74,7 +91,18 @@
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    
+    NSInteger = aNumber;
+    aNumber = 1;
+    
+    NSInteger = bNumber;
+   bNumber = 2;
+   
+    NSInteger c;
+    c = aNumber + bNumber;
+    return c;
+
+    return sum;
 }
 
 
@@ -82,6 +110,7 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
+    if (
     return NO;
 }
 
@@ -89,7 +118,9 @@
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
-    return NO;
+    if (int i % 5) {
+    return YES;
+    }
 }
 
 /*
@@ -97,7 +128,7 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
-    return NO;
+    return YES;
 }
 
 /*
@@ -105,14 +136,19 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
-}
+        return [person name];
+    }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
-    
+    - (void)setName:(NSString *)name {
+
+         Person *name = [[Person alloc]init];
+         [Person setName: [self name]];
+         name = "Ada Lovelace";
+         return name;
 }
 
 /*
@@ -123,6 +159,7 @@
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
     return [[Person alloc] init];
+    
 }
 
 /*
