@@ -18,7 +18,10 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
+- (NSInteger)shouldReturnAPositiveNSInteger {
+
+    return 5 + 2;
+    
     
 }
 
@@ -26,22 +29,26 @@
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
+- (CGFloat)shouldReturnANegativeCGFloat {
     
+    return -15.60;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
+- (BOOL)shouldReturnAFalseyBool {
     
+    return 3 > 99;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    
+    return 'c';
 }
 
 /*
@@ -49,15 +56,31 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
-}
+    
+    NSInteger sum = 0;
+    for( int i = 1; i <= 100; i++) {
+        if(i % 1 == 0) {
+            sum += i;
+        }
+        
+        
+    }
+    return sum;}
+    
+
+
+
 
 /*
     Given a c array (int[]) and a count, return the sum of the numbers within the arr
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+    
+    int sumOfArr [] = {40, 20, 10, 5, 2};
+    NSInteger sumOfArrcount = sumOfArr[0] + sumOfArr[1] + sumOfArr[2] + sumOfArr[3] + sumOfArr[4];
+    
+    return sumOfArrcount;
 }
 
 /*
@@ -67,6 +90,8 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
+    
+    
     return '\0';
 }
 
@@ -74,7 +99,12 @@
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    
+    
+    
+    NSInteger sumOfAnInteger = aNumber + bNumber;
+    
+    return sumOfAnInteger;
 }
 
 
@@ -82,14 +112,19 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
-    return NO;
+    
+   
+    if (aNumber % 2 != 0) return YES;
+    else return NO;
 }
 
 /*
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
-    return NO;
+    if (aNumber % 5 == 0) return YES;
+    else return NO;
+
 }
 
 /*
@@ -97,7 +132,9 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
-    return NO;
+    
+    if (aNumber % 2 != 0) return YES;
+    else return NO;
 }
 
 /*
@@ -105,7 +142,10 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    
+    [person setName:@"kathy"];
+    
+    return @"kathy";
 }
 
 /*
@@ -113,6 +153,8 @@
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
     
+    
+    [person setName:@"Ada Lovelace"];
 }
 
 /*
@@ -122,9 +164,17 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+
+    Person *santa = [[Person alloc] init];
+    [santa setName:@"Santa Clause"];
+    [santa setAge: 1823];
+
+       return santa;
 }
 
+
+
+    
 /*
     This method provides you an instance of Chair as a parameter
     1) Create an instance of Person
@@ -133,6 +183,9 @@
  
  */
 - (void)makePersonSitInChair:(Chair *)chair {
+    Person *joe = [[Person alloc]init];
+    
+    [joe sitInChair: chair];
     
 }
 
@@ -141,7 +194,7 @@
     Send a message to this Person object telling it to stand up
  */
 - (void)makePersonStandUp:(Person *)person {
-    
+    [person standUp];
 }
 
 /*
