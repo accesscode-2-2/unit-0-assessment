@@ -18,7 +18,9 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
+- (NSInteger)shouldReturnAPositiveNSInteger {
+
+    return 10;
     
 }
 
@@ -26,22 +28,26 @@
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
+- (CGFloat)shouldReturnANegativeCGFloat {
     
+    return -15.5;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
+- (BOOL)shouldReturnAFalseyBool {
     
+    return FALSE;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    
+    return 'b';
 }
 
 /*
@@ -49,6 +55,12 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
+    
+    int sum = 0;
+    for (int i = 1; i <= 99; i++) {
+        sum = sum +i;
+        NSLog(@"%i", sum);
+    }
     return 0;
 }
 
@@ -57,6 +69,10 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
+    
+    
+    arr[
+    
     return 0;
 }
 
@@ -67,6 +83,8 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
+    
+    
     return '\0';
 }
 
@@ -89,6 +107,13 @@
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+    aNumber = 0;
+    for (int i = 1; i < 5; i++) {
+        aNumber = aNumber + i;
+        if (aNumber == 5) {
+            return YES;
+        }
+    }
     return NO;
 }
 
@@ -97,6 +122,12 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
+                   aNumber = 7;
+                   bNumber = 14;
+                   if ( aNumber & 1) {
+                       Ns
+                       return YES;
+                   } if
     return NO;
 }
 
@@ -105,7 +136,7 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    return @"person";
 }
 
 /*
@@ -149,6 +180,12 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
+    
+    NSArray  *stuff;
+    
+    stuff = [NSArray arrayWithObjects: @"Something", @"Another", @"Lincoln", @"Carl", @"Rick", @"Doughlyn", nil];
+    
+    
     return [[NSArray alloc] init];
 }
 
