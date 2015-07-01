@@ -18,15 +18,18 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    NSInteger aPositiveInteger = 25;
+    return aPositiveInteger;
 }
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
+- (CGFloat)shouldReturnANegativeCGFloat {
+    CGFloat aNegativefloat = -2.5;
+    return aNegativefloat;
     
 }
 
@@ -34,14 +37,17 @@
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+    BOOL quit = 0;
+    return quit;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    char userInput = 'a';
+    return userInput;
 }
 
 /*
@@ -49,7 +55,11 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    NSInteger sum = 0;
+    for (NSInteger i = 0; i < 100; i++) {
+        sum += i;
+    }
+    return sum;
 }
 
 /*
@@ -57,7 +67,11 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+    NSInteger resultArray = 0;
+    for (NSInteger i = 0; i < count; i++) {
+        resultArray += arr[i];
+    }
+    return resultArray;
 }
 
 /*
@@ -67,14 +81,30 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
+    
+    BOOL notB4Q = YES;
+    char beforeQ = '\0';
+    
+    while (notB4Q) {
+        for (int i = 0; i < 17; i++) {
+            if (str[i] == 'q') {
+                beforeQ = str[i-1];
+                notB4Q = NO;
+            }
+        }
+    }
+    return beforeQ;
 }
 
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    
+    NSInteger result = aNumber + bNumber;
+    
+    
+    return result;
 }
 
 
@@ -82,14 +112,29 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
-    return NO;
+    BOOL odd = NO;
+    if (aNumber % 2 == 0) {
+        odd = NO;
+    } else {
+        odd = YES;
+    }
+    return odd;
 }
 
 /*
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
-    return NO;
+    
+    BOOL multipleOfFive = NO;
+    
+    if (aNumber % 5 == 0) {
+        multipleOfFive = YES;
+    } else {
+        multipleOfFive = NO;
+    }
+    
+    return multipleOfFive;
 }
 
 /*
@@ -97,7 +142,14 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
-    return NO;
+    
+    BOOL theyAreOddAndEven = 0;
+    if (!(aNumber % 2 == 0) && (bNumber % 2 == 0)) {
+        theyAreOddAndEven = YES;
+    } else {
+        theyAreOddAndEven = NO;
+    }
+    return theyAreOddAndEven;
 }
 
 /*
@@ -105,13 +157,14 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    return [person name];
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
+    [person setName:@"Ada Lovelace"];
     
 }
 
@@ -122,7 +175,13 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+    
+    Person *jay = [[Person alloc] init];
+    
+    [jay setName:@"Santa Clause"];
+    [jay setAge: 1823];
+    
+    return jay;
 }
 
 /*
@@ -133,6 +192,8 @@
  
  */
 - (void)makePersonSitInChair:(Chair *)chair {
+    Person *jay = [[Person alloc]init];
+    [jay sitInChair: chair];
     
 }
 
@@ -141,6 +202,8 @@
     Send a message to this Person object telling it to stand up
  */
 - (void)makePersonStandUp:(Person *)person {
+    [person standUp];
+    
     
 }
 
@@ -149,7 +212,10 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
-    return [[NSArray alloc] init];
+    
+    NSArray *myArray = [NSArray arrayWithObjects:@"apple", @"google", @"hello", @"cool", @"jay", @"mike", nil];
+    
+    return myArray;
 }
 
 // BONUS
@@ -160,6 +226,8 @@
  */
 - (void)changeValueOfIndexFourInArray:(NSMutableArray *)arr
                         toPersonsName:(Person *)person {
+    
+    
     
 }
 
