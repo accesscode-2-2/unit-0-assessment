@@ -19,7 +19,7 @@
     (hint: cannot be 0)
  */
 - (void)shouldReturnAPositiveNSInteger {
-    
+    NSInteger positiveInt = 1;
 }
 
 /*
