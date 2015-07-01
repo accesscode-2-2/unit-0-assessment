@@ -18,30 +18,39 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    
+    NSInteger Carmelo = 7;
+    
+    return Carmelo;
     
 }
 
 /*
-    This method should return any negative CGFloat 
+    This method should return any negative CGFloat
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (CGFloat)shouldReturnANegativeCGFloat {
+    CGFloat Winter = -7;
+    return Winter;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool {
+
+    BOOL falsey = 7>8;
+    return falsey;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    char a = 'a';
+   return a;
 }
 
 /*
@@ -49,7 +58,15 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+        int sum = 0;
+        
+        for (int i =0; i < 100; i++) {
+            sum+= i;
+        }
+        return sum;
+    
+
+    return  0;
 }
 
 /*
@@ -57,7 +74,16 @@
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+    NSInteger sum = 0;
+    
+    for (int i = 0; i < count; i++) {
+        
+        sum += arr[i];
+        
+    }
+    
+    return sum;
+    
 }
 
 /*
@@ -66,15 +92,17 @@
     (ex. "aionkljajvqlkjaml" would return the letter 'v')
     (hint: while loop)
  */
-- (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
-}
+//- (char)shouldReturnCharBeforeQ:(char *)str {
+//    
+////   char alphabet = 'pq';
+////    return /0;
+//}
 
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    return aNumber + bNumber;
 }
 
 
@@ -82,6 +110,10 @@
     This method should return a YES if aNumber is odd
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
+    
+    if (aNumber % 2 != 0) {
+        return YES;
+    }
     return NO;
 }
 
@@ -89,6 +121,11 @@
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+    
+    if (aNumber % 5 == 0) {
+        return YES;
+    }
+    
     return NO;
 }
 
@@ -97,6 +134,9 @@
  */
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
+    if (aNumber %2 != 0 && bNumber %2 == 0) {
+        return YES;
+    }
     return NO;
 }
 
@@ -105,14 +145,14 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    return @"";
+    return [person name];
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
 - (void)changePersonsNameToAdaLovelace:(Person *)person {
-    
+    return [person setName:@"Ada Lovelace"];
 }
 
 /*
@@ -122,7 +162,11 @@
     3) Set the person's age to 1823
  */
 - (Person *)createAndReturnPersonWithSomeProperties {
-    return [[Person alloc] init];
+    
+    Person *Santa = [[Person alloc]init];
+    [Santa setName:@"Santa Clause"];
+    [Santa setAge:1823];
+    return Santa;
 }
 
 /*
@@ -133,7 +177,8 @@
  
  */
 - (void)makePersonSitInChair:(Chair *)chair {
-    
+    Person *person = [[Person alloc]init];
+    [person sitInChair:chair];
 }
 
 /*
@@ -141,6 +186,8 @@
     Send a message to this Person object telling it to stand up
  */
 - (void)makePersonStandUp:(Person *)person {
+    [person standUp];
+                      
     
 }
 
@@ -149,6 +196,9 @@
     https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/
  */
 - (NSArray *)createAndReturnNSArray {
+    
+    
+    
     return [[NSArray alloc] init];
 }
 
@@ -184,7 +234,18 @@
     (ex: [200, 500, 100, 400] returns 800)
  */
 - (int)returnSumWhileSumIsLessThan1050:(int *)arr {
-    return 0;
+    int sum = 0;
+    
+    for (int i =0; i < 1050; i++) {
+        sum+= i;
+    }
+    if (sum == 1050) {
+        break
+    }
+    return sum;
+    
+    
+    return  0;
 }
 
 @end
