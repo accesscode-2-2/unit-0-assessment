@@ -18,30 +18,31 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (void)shouldReturnAPositiveNSInteger {
-    
+- (NSInteger)shouldReturnAPositiveNSInteger {
+    return 1;
 }
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (void)shouldReturnANegativeCGFloat {
-    
+- (CGFloat)shouldReturnANegativeCGFloat {
+    return -1.5;
 }
 
 /*
     This method should return a falsy boolean
     Falsey: Something which evaluates to FALSE.
  */
-- (void)shouldReturnAFalseyBool {
-    
+- (BOOL)shouldReturnAFalseyBool: (BOOL)falsy {
+    return NO;
 }
 
 /*
     This method should return a single char from a - z
  */
-- (void)shouldReturnACharAtoZ {
+- (char)shouldReturnACharAtoZ {
+    return 'g';
 }
 
 /*
@@ -49,15 +50,20 @@
     0 - 99 using a loop (. 1 + 2 + 3 + ... + 98 + 99)
  */
 - (NSInteger)shouldReturnSumOf0To100 {
-    return 0;
+    int i = -1;
+    while (i < 100) {
+        i = i + 1;
+        NSLog(@"%d", i);
+    }
+    return i;
 }
-
 /*
     Given a c array (int[]) and a count, return the sum of the numbers within the arr
     (eg. arr[0] + arr[1] ...)
  */
 - (NSInteger)shouldReturnSumOfArrayValues:(int *)arr withSize:(int)count {
-    return 0;
+    
+    return ;
 }
 
 /*
@@ -67,14 +73,14 @@
     (hint: while loop)
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
-    return '\0';
+    return '';
 }
 
 /*
     This method should return the sum of aNumber + bNumber
  */
 - (NSInteger)sumOfAnInteger:(NSInteger)aNumber andAnotherInteger:(NSInteger)bNumber {
-    return 0;
+    return (aNumber) + (bNumber);
 }
 
 
@@ -133,6 +139,7 @@
  
  */
 - (void)makePersonSitInChair:(Chair *)chair {
+    
     
 }
 
