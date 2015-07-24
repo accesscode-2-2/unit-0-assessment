@@ -18,28 +18,32 @@
     This method should return any positive NSInteger 
     (hint: cannot be 0)
  */
-- (NSInteger)shouldReturnAPositiveNSInteger:(NSInteger)i {
+- (NSInteger)shouldReturnAPositiveNSInteger{
     
-    if (i > 0) {
-        return i;
-    }
-    i *= -1;
-    return i;
-}
+//    if (i > 0) {
+//        return i;
+//    }
+//    i = i * -1;
+//    return i;
+//}
 
+    return 4;
+}
 
 /*
     This method should return any negative CGFloat 
     (hint: cannot be 0)
  */
-- (CGFloat)shouldReturnANegativeCGFloat: (CGFloat)i{
+- (CGFloat)shouldReturnANegativeCGFloat{
     
-    if (i < 0) {
-        return i;
-    }
-    i = -i;
+//    if (i < 0) {
+//        return i;
+//    }
+//    i = -i;
+//    
+//    return i;
     
-    return i;
+    return -8.0;
 }
 
 /*
@@ -57,14 +61,15 @@
  */
 - (char)shouldReturnACharAtoZ{
     
-    char aLetter;
-//    char anArray[26] = "abcdefghijklmnopqrstuvwxyz";
+//    char aLetter;
+////    char anArray[26] = "abcdefghijklmnopqrstuvwxyz";
+////    
+////    while (<#condition#>) {
+////        <#statements#>
+////    }
 //    
-//    while (<#condition#>) {
-//        <#statements#>
-//    }
-    
-    return aLetter;
+//    return aLetter;
+    return 'c';
 }
 
 /*
@@ -73,7 +78,7 @@
  */
 - (NSInteger)shouldReturnSumOf0To100 {
     
-    NSInteger sum = 0;
+    int sum = 0;
     for (int i = 0; i < 100; i++) {
         sum = sum + i;
     }
@@ -102,17 +107,29 @@
  */
 - (char)shouldReturnCharBeforeQ:(char *)str {
     
+//    int i = 0;
+//    
+//    while (str[i] != 'q') {
+//        
+//        if (str[i] == 'q') {
+//            return str[i-1];
+//        }
+//        
+//        i++;
+//    }
+//    //I know this is incorrect
+//    return str[i];
+    
+    
     int i = 0;
     
     while (str[i] != 'q') {
-        
-        if (str[i] == 'q') {
-            return str[i-1];
+    //the loop will continue until it finds a 'q'. when it does it will break out of the loop. No need for an if statement.
+            i++;
         }
-        
-        i++;
-    }
-    return '\0';
+
+    return str [i - 1];
+    
 }
 
 /*
@@ -131,7 +148,7 @@
  */
 - (BOOL)isOdd:(NSInteger)aNumber {
     
-    if (aNumber == aNumber %2) {
+    if (aNumber %2 == 0) {
         return NO;
     }
     
@@ -142,11 +159,15 @@
     This method should return YES if aNumber is a multiple of 5
  */
 - (BOOL)isMultipleOfFive:(NSInteger)aNumber {
+    //the below works!
+//    if (aNumber %5 == 0) {
+//        return YES;
+//    }
+//    return NO;
     
-    if (aNumber == aNumber %5) {
-        return YES;
-    }
-    return NO;
+    //This would also work:
+    return aNumber %5 == 0;
+    //same for the above
 }
 
 /*
@@ -155,7 +176,7 @@
 - (BOOL)returnYesIfThisNumberIsOdd:(NSInteger)aNumber
                andThisNumberIsEven:(NSInteger)bNumber {
     
-    if (aNumber != aNumber %2 && bNumber == bNumber %2) {
+    if (aNumber %2 != 0 && bNumber %2 == 0) {
         return YES;
     }
     
@@ -167,15 +188,15 @@
     parameter (hint: command + click on class name to jump to the interface.
  */
 - (NSString *)shouldReturnPersonsName:(Person *)person {
-    [person name];
-    return @"";
+    
+    return [person name];
 }
 
 /*
     This method should change the person name to "Ada Lovelace"
  */
-- (void)changePersonsNameToAdaLovelace:(Person *)person {
-    [person setName:@"Ada LoveLace"];
+- (void) changePersonsNameToAdaLovelace:(Person *)person {
+    [person setName:@"Ada Lovelace"];
 }
 
 /*
@@ -184,12 +205,12 @@
     2) Set the person's name to "Santa Clause"
     3) Set the person's age to 1823
  */
-- (Person *)createAndReturnPersonWithSomeProperties: (Person *)person {
+- (Person *)createAndReturnPersonWithSomeProperties {
+    Person *anotherPerson = [[Person alloc] init];
+    [anotherPerson setName:@"Santa Clause"];
+    [anotherPerson setAge:1823];
     
-    [person setName:@"Santa Clause"];
-    [person setAge:1823];
-    
-    return [[Person alloc] init];
+    return anotherPerson;
 }
 
 /*
@@ -219,17 +240,22 @@
  */
 - (NSArray *)createAndReturnNSArray {
     
-    NSArray *arr;
-    NSString *object1;
-    NSString *object2;
-    NSString *object3;
-    NSString *object4;
-    NSString *object5;
-    NSString *object6;
+    
+    NSArray *arr = [[NSArray alloc] init];
+    NSString *object1 = @"one";
+    NSString *object2 = @"two";
+    NSString *object3 = @"three";
+    NSString *object4 = @"four";
+    NSString *object5 = @"five";
+    NSString *object6 = @"six";
     
     arr = [NSArray arrayWithObjects:object1, object2, object3, object4, object5, object6, nil];
     
-    return [[NSArray alloc] init];
+    return arr;
+    
+    //also, the following would work:
+    //return [NSArray arrayWithObjects: @"one", @"two", @"three", @"four", @"five", @"six", nil];
+    //Because "arrayWithObjects" does the alloc init for you.
 }
 
 // BONUS
@@ -243,6 +269,9 @@
     
     [arr replaceObjectAtIndex:4 withObject:[person name]];
     
+    //this also would work, but it might not give you "bounce checking", i.e. give you an error msg, it might just silently fail
+    //arr[4] = [person name];
+    
 }
 
 // BONUS
@@ -255,7 +284,13 @@
 - (NSString *)repeatString:(NSString *)str
              numberOfTimes:(NSInteger)x {
     
-    return @"";
+    //from review in class
+    NSMutableString *finalString = [[NSMutableString alloc] init];
+    for (int i = 0; i < x; i++) {
+        [finalString appendString:str];
+    }
+    
+    return finalString;
 }
 
 // BONUS
@@ -267,7 +302,28 @@
     (ex: [200, 500, 100, 400] returns 800)
  */
 - (int)returnSumWhileSumIsLessThan1050:(int *)arr {
-    return 0;
+    
+    //from in-class review
+//    int i = 0;
+//    int sum = 0;
+//    
+//    while (sum <= 1050) {
+//        sum = sum + arr[i];
+//        i++;
+//    }
+//    
+//    return sum - arr [i - 1 ];
+    
+    //Caleb's solution
+    int i = 0;
+    int sum = 0;
+    
+    while (sum  + arr[i] <= 1050) {
+        sum = sum + arr[i];
+        i++;
+    }
+    
+    return sum;
 }
 
 @end
